@@ -2,6 +2,7 @@ version: '3.3'
 services:
   registry:
     image: registry:2
+    container_name: registry
     ports:
       - 5000:5000
     #environment:
@@ -30,6 +31,7 @@ services:
         #- ~/volumes/registry/data:/var/lib/registry
   registry-ui:
     image: konradkleine/docker-registry-frontend:v2
+    container_name: registry_frontend
     environment:
       - ENV_DOCKER_REGISTRY_HOST=registry
       - ENV_DOCKER_REGISTRY_PORT=5000
