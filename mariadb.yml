@@ -10,3 +10,6 @@ services:
       MYSQL_PASSWORD: pass
     ports:
       - 3306:3306
+    # volumes:
+    #   - ../DockerVolumes/mariadb:/var/lib/mysql
+
