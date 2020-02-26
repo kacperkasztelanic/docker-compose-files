@@ -1,8 +1,8 @@
 version: '3.3'
 services:
-  mariadb:
-    image: mariadb:latest
-    container_name: mariadb
+  mysql:
+    image: mysql:latest
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: db
@@ -12,6 +12,6 @@ services:
     ports:
       - 3306:3306
     # volumes:
-    #   - ../DockerVolumes/mariadb:/var/lib/mysql
-    #   - /home/$USER/docker/mariadb:/var/lib/mysql
+    #   - ../DockerVolumes/mysql:/var/lib/mysql
+    #   - /home/$USER/docker/mysql:/var/lib/mysql
 

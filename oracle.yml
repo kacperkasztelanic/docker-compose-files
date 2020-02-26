@@ -1,0 +1,33 @@
+version: '3.3'
+#####################
+# First run:
+# $ mkdir -p /home/$USER/courses/dbm/mssql-server/ \
+#            /home/$USER/courses/dbm/oracle-std/data \
+#            /home/$USER/courses/dbm/postgresql/data \
+#            /home/$USER/courses/dbm/mysql/data \
+#            /home/$USER/courses/dbm/pgadmin/data
+# $ chown -R 1000:1001 /home/$USER/courses/dbm/oracle-std/data
+# $ chown -R 5050:5050 /home/$USER/courses/dbm/pgadmin/data
+# $ docker-compose up -d && docker-compose logs -f --tail=1000
+#
+#####################
+
+services:
+######################
+# based on https://github.com/MaksymBilenko/docker-oracle-12c
+# sid: xe
+# service name: xe
+# username: system
+# password: oracle
+######################
+  oracle:
+    image: quay.io/maksymbilenko/oracle-12c
+    container_name: oracle
+    environment:
+      - WEB_CONSOLE=false
+      - DBCA_TOTAL_MEMORY=2048
+    ports:
+      - 1521:1521
+    #volumes:
+    #  - /home/$USER/docker/oracle/data:/u01/app/oracle
+      ##- /home/$USER/courses/dbm/oracle-std/scripts/init:/docker-entrypoint-initdb.d

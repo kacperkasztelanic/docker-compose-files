@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  postgresql:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=db
+      - POSTGRES_ENCODING=UTF-8
+    ports:
+      - 5432:5432
+    #volumes:
+    #  - ../DockerVolumes/postgres:/var/lib/mysql
+    #  - /home/$USER/docker/postgres/data:/var/lib/postgresql/data
+

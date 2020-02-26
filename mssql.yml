@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=pass
+    ports:
+      - 1433:1433
+    #volumes:
+    #  - ../DockerVolumes/mssql:/var/lib/mysql
+    #  - /home/$USER/docker/mssql/data:/var/opt/mssql

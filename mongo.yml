@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   mongo:
-    image: mongo:latest
+    image: mongo:4.0.0
     container_name: mongo
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
@@ -10,3 +10,4 @@ services:
       - 27017:27017
     # volumes:
     #   - ../DockerVolumes/mongodb:/data/db
+    #   - /home/$USER/docker/mongo:/data/db
