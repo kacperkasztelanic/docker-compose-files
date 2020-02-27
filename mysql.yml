@@ -11,7 +11,7 @@ services:
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - 3306:3306
-    # volumes:
-    #   - ../DockerVolumes/mysql:/var/lib/mysql
-    #   - /home/$USER/docker/mysql:/var/lib/mysql
+    #volumes:
+    #  - ../DockerVolumes/mysql:/var/lib/mysql
+    #  - /home/$USER/docker/mysql:/var/lib/mysql
 

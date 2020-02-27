@@ -8,6 +8,6 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=pass
     ports:
       - 27017:27017
-    # volumes:
-    #   - ../DockerVolumes/mongodb:/data/db
-    #   - /home/$USER/docker/mongo:/data/db
+    #volumes:
+    #  - ../DockerVolumes/mongodb:/data/db
+    #  - /home/$USER/docker/mongo:/data/db
