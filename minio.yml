@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  minio:
+    image: minio/minio:latest
+    container_name: minio
+    environment:
+      - MINIO_ACCESS_KEY=root
+      - MINIO_SECRET_KEY=P@ssw0rd
+    ports:
+      - 9000:9000
+    volumes:
+    #  - ../DockerVolumes/minio:/data
+    #  - /home/$USER/docker/minio:/data
+    command: server /data
