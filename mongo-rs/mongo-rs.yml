@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.2.3
+    container_name: mongo-rs
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongo
+    #  - MONGO_INITDB_ROOT_USERNAME=root
+    #  - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports:
+      - 27017:27017
+    volumes:
+      - /home/$USER/docker/mongo-rs:/data/db
+    #  - ../DockerVolumes/mongodb:/data/db
+    command: ['mongod', '--replSet', 'rs0']
+  mongo-setup:
+    build: 
+      context: ./mongo-setup
+    image: mongo-setup:4.2.3
+    container_name: mongo-rs-setup
+    depends_on:
+      - mongo
+    command:  bash -c 'sleep 5 && /usr/bin/mongo --host mongo --eval "host=\"mongo\"" init.js'
