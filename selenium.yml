@@ -1,0 +1,28 @@
+services:
+  hub:
+    image: selenium/hub:latest
+    container_name: selenium_hub
+    ports:
+      - 127.0.0.1:4444:4444
+  chrome:
+    image: selenium/node-chrome:latest
+    container_name: selenium_node_chrome
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+  firefox:
+    image: selenium/node-firefox:latest
+    container_name: selenium_node_firefox
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+    profiles:
+      - donotstart
