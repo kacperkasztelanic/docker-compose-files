@@ -1,0 +1,14 @@
+services:
+  influxdb:
+    image: influxdb:2.7-alpine
+    container_name: influxdb
+    environment:
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=adminpass
+      - INFLUXDB_DB=esp32
+      - INFLUXDB_BUCKET=esp32
+      - INFLUXDB_ORG=iot
+    ports:
+      - "8086:8086"
+    volumes:
+      - /home/kacper/Dev/docker-volumes/influxdb/data:/var/lib/influxdb2

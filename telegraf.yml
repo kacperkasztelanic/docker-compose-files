@@ -1,0 +1,6 @@
+services:
+  telegraf:
+    image: telegraf:1.37-alpine
+    container_name: telegraf
+    volumes:
+      - ./config/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro

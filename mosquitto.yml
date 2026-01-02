@@ -1,0 +1,10 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./config/mosquitto:/mosquitto/config
+      - /home/kacper/Dev/docker-volumes/mosquitto/data:/mosquitto/data
+      - /home/kacper/Dev/docker-volumes/mosquitto/log:/mosquitto/log
