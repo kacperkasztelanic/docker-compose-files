@@ -1,0 +1,20 @@
+services:
+  writefreely:
+    build:
+      context: .
+      args:
+        - REPOSITORY=$REPOSITORY
+        - VERSION=$VERSION
+    container_name: writefreely
+    restart: unless-stopped
+    expose:
+      - "8080"
+    ports:
+      - $PORT:8080
+    environment:
+      - USERNAME
+      - PASSWORD
+    volumes:
+      - ../volumes/writefreely/config:/config:Z
+      - ../volumes/writefreely/data:/data:Z
+
