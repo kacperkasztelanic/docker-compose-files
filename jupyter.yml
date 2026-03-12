@@ -1,0 +1,12 @@
+services:
+  jupyter:
+    image: jupyter/scipy-notebook:latest
+	container_name: jupyter
+	restart: unless-stopped
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./volumes/jupyter:/home/jovyan/work
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=my-secret-password
