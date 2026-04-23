@@ -1,0 +1,21 @@
+services:
+  open_notebook:
+    image: lfnovo/open_notebook:v1-latest-single
+    container_name: open-notebook
+    restart: unless-stopped
+    ports:
+      - "8502:8502"
+      - "5055:5055"
+    volumes:
+      - open-notebook-data:/app/data
+      - open-notebook-db:/mydata
+    environment:
+      - SURREAL_URL=ws://localhost:8000/rpc
+      - SURREAL_USER=root
+      - SURREAL_PASSWORD=root
+      - SURREAL_NAMESPACE=open_notebook
+      - SURREAL_DATABASE=production
+      - OPEN_NOTEBOOK_ENCRYPTION_KEY=local_only_dev_key_12345
+volumes:
+  open-notebook-data:
+  open-notebook-db:
