@@ -1,0 +1,14 @@
+services:
+  gerbera-mac:
+    image: gerbera/gerbera:2.5.0-transcoding
+    container_name: gerbera-mac
+    ports:
+    - "1900:1900/udp"
+    - "49494:49494"
+    volumes:
+    - /Users/kacper/Movies:/mnt/content:ro
+    - /Users/kacper/Dev/docker-compose-files/volumes/gerbera:/var/run/gerbera
+    environment:
+    - PUID=501
+    - PGID=20
+    - TZ=Europe/Warsaw
